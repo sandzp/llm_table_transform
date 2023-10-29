@@ -12,6 +12,7 @@ Uses OpenAI API + GPT-4 with a LangChain interface.
 2. Once environment created, activate: ```conda activate llm_env```
 3. Go to ```main.py``` and ensure your openAI API key is correct.
 4. Run the main script, with following arguments: ```python main.py <path to table A> <path to table B> <desired name of saved table.csv>```
+5. The program will guide you through the steps including naming the columns to rename.
 
 The script should guide you through transformation of the table. 
 
