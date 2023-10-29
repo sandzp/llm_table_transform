@@ -20,6 +20,6 @@ Example usage:
 
 ```python main.py tables/template.csv tables/table_A.csv table_a_transformed.csv```
 
-This will compare `Table_A.csv` to a table called `template.csv` and reformat data and column names from A to those of template.
+This will compare `Table_A.csv` to a table called `template.csv` and reformat data and column names from A to those of the template table.
 
 
