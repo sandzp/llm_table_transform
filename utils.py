@@ -5,11 +5,14 @@ from ast import literal_eval
 import pandas as pd
 import io
 import tempfile
-import re
+import os
 
 class table_transformer(object):
     def __init__(self):
         pass
+
+    def clear(self):
+        os.system('clear')
 
     def create_agent(self, path):
         if isinstance(path, list):
@@ -37,8 +40,9 @@ class table_transformer(object):
         return op
     
     def rename_prune_table(self, agent, similar_columns):
-        cols_to_keep = list(literal_eval(similar_columns).keys())
-        print(f"Keeping: {cols_to_keep}")
+        sim_col_dict = literal_eval(similar_columns)
+        cols_to_keep = list(sim_col_dict.keys())
+        print(f"Changing from:to: \n {pd.DataFrame({'From':list(sim_col_dict.keys()), 'To':list(sim_col_dict.values())})}")
         agent.run(f"Rename the columns in table 2, represented by the values in this dictionary, to the names represented by their corresponding key: {similar_columns}")
         op = agent.run(f"Remove all columns from table 2 that are not contained in this list and return the table in dictionary format without any surrounding text: {cols_to_keep}")
         return op
